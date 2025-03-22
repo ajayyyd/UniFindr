@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FormWizard_v4</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="{% static 'forms/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="{% static 'forms/vendor/date-picker/css/datepicker.min.css' %}">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'forms/css/style.css' %}">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="image-holder">
+				<img src="{% static 'forms/images/form-wizard.png' %}" alt="">
+			</div>
+            <form id="uni_data" method="POST" action="{% url 'add_university' %}">
+				{% csrf_token %}
+
+            	<div class="form-header">
+            		<a href="#">Universities</a>
+            		<h3>Register your University</h3>
+            	</div>
+            	<div id="wizard">
+            		<!-- SECTION 1 -->
+	                <h4></h4>
+	                <section>
+						<div class="form-row">
+	                    	<label for="name">
+	                    		Name Of University
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<input type="text" class="form-control" name="name" id="name">
+	                    	</div>
+						</div>
+	                    <div class="form-row" style="margin-bottom: 26px;">
+	                    	<label for="country">
+	                    		Country
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="country" id="country" class="form-control">
+									<option value="Germany" class="option">Germany</option>
+									<option value="UK" class="option">UK</option>
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="system_of_study">
+	                    		System Of Study:
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="system_of_study" id="system_of_study" class="form-control">
+									<option value="online" class="option">Online</option>
+									<option value="offline" class="option">Offline</option>
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="course">
+	                    		Course Subject:
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="course" id="course" class="form-control">
+									<option value="Data Science & Data Analytics" class="option">Data Science & Data Analytics</option>
+									<option value="Agriculture" class="option">Agriculture</option>
+									<option value="Engineering" class="option">Engineering</option>
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="intake">
+	                    		Intakes
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="intake" id="intake" class="form-control">
+	                    			<option value="" selected disabled>Select Term</option>
+									<option value="july" class="option">July</option>
+									<option value="september" class="option">September</option>
+									<option value="october" class="option">October</option>
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="level">
+								Study Level:
+	                    	</label>
+	                    	<div class="form-holder">
+								<select name="level" id="level" class="form-control">
+	                    			<option value="" selected disabled>Select Term</option>
+									<option value="Bachelors" class="option">Bachelors</option>
+									<option value="Masters" class="option">Masters</option>
+									<option value="Graduate Diploma" class="option">Graduate Diploma</option>
+									<option value="Phd" class="option">Phd</option>
+									<option value="Graduate Certificate" class="option">Graduate Certificate</option>
+								</select>
+	                    	</div>
+	                    </div>
+	                </section>
+
+					<!-- SECTION 2 -->
+	                <h4></h4>
+	                <section>
+	                    <div class="form-row">
+	                    	<label for="min_marks">
+								Minimum aggregate marks ( 10th & 12th )
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<input type="text" class="form-control" id="min_marks" name="min_marks">
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="min_CGPA">
+	                    		Minimum CGPA for Degree
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<input type="text" class="form-control" id="min_CGPA" name="min_CGPA">
+
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="accepted_lt">
+	                    		Which English test did you take?
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="accepted_lt" id="accepted_lt" class="form-control">
+									<option value="IELTS" class="option">IELTS</option>
+									<option value="TOEFL" class="option">TOEFL</option>
+									<option value="PTE" class="option">PTE</option>
+									<option value="none" class="option">none</option>
+								</select>
+	                    	</div>
+	                    </div>
+	                    <div class="form-row">
+	                    	<label for="lt_score">
+	                    		Test Score:
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<input type="text" class="form-control" name="lt_score" id="lt_score">
+	                    	</div>
+	                    </div>
+	                </section>
+
+	                <!-- SECTION 3 -->
+	                <h4></h4>
+	                <section>
+	                    <div class="form-row">
+	                    	<label for="fees">
+	                    		Tuition Fees(Anually)
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<input type="text" class="form-control" placeholder="Ex.17000" name="fees" id="fees">
+	                    	</div>
+	                    </div>
+
+	                </section>
+            	</div>
+            </form>
+		</div>
+
+		<script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+
+		<!-- JQUERY STEP -->
+		<script src="{% static 'adminpanel/add_uni/js/jquery.steps.js' %}"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="{% static 'forms/vendor/date-picker/js/datepicker.js' %}"></script>
+		<script src="{% static 'forms/vendor/date-picker/js/datepicker.en.js' %}"></script>
+
+		<script src="{% static 'forms/js/main.js' %}"></script>
+	</body>
+</html>
